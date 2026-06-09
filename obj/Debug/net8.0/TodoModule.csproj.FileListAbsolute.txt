@@ -26,3 +26,4 @@
 /home/yopx/ProjectsCSharp/TodoModule/obj/Debug/net8.0/TodoModule.pdb
 /home/yopx/ProjectsCSharp/TodoModule/obj/Debug/net8.0/TodoModule.genruntimeconfig.cache
 /home/yopx/ProjectsCSharp/TodoModule/obj/Debug/net8.0/ref/TodoModule.dll
+/home/yopx/ProjectsCSharp/TodoModule/obj/Debug/net8.0/TodoModule.sourcelink.json
