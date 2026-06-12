@@ -1,6 +1,0 @@
-@TodoModule_HostAddress = http://localhost:5036
-
-GET {{TodoModule_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
