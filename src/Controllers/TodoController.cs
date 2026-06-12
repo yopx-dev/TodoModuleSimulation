@@ -2,7 +2,7 @@ namespace TodoModule.Controller;
 
 using Microsoft.AspNetCore.Mvc;
 using TodoModule.Context;
-using TodoModule.Core;
+using TodoModule.Database;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -21,11 +21,16 @@ public class TodoController : ControllerBase
     public ActionResult<Todo> Create(TodoRequest task)
     {
         
-        if (task.Title == null || task.Title.Trim().Length == 0)
+        if (!IsValidTitle(task.Title))
             return BadRequest("Title cannot be empty!");
 
         var todo = _todoStorage.AddTodo(task);  
         return Ok(todo);
+    }
+
+    private bool IsValidTitle(string Title)
+    {
+        return !((Title == null) || (Title.Trim().Length == 0));
     }
 
     [HttpGet]
@@ -55,7 +60,7 @@ public class TodoController : ControllerBase
             _todoStorage.RemoveTodoById(Id);
             return NoContent();
         }
-        catch (Exception)
+        catch (KeyNotFoundException)
         {
             return NotFound();
         }
@@ -67,7 +72,7 @@ public class TodoController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult PutTodoById(int Id, TodoRequest request)
     {
-        if (request.Title == null || request.Title.Trim().Length == 0)
+        if (!IsValidTitle(request.Title))
             return BadRequest("Title cannot be empty!");
 
         try 
@@ -75,7 +80,7 @@ public class TodoController : ControllerBase
             _todoStorage.UpdateTodo(request, Id);
             return Ok();
         }
-        catch (Exception)
+        catch (KeyNotFoundException)
         {
             return NotFound();
         }
