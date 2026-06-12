@@ -22,4 +22,4 @@ REST API для управления задачами на ASP.NET Core с Postg
 
    ```bash
    git clone https://github.com/yopx-dev/TodoModuleSimulation.git
-   cd TodoApi
+   cd TodoModuleSimulation
