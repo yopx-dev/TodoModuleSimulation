@@ -19,6 +19,7 @@ REST API для управления задачами на ASP.NET Core с Postg
 ### Установка
 
 1. Клонируй репозиторий:
+
    ```bash
-   git clone https://github.com/yopx-dev/TodoApi.git
+   git clone https://github.com/yopx-dev/TodoModuleSimulation.git
    cd TodoApi
